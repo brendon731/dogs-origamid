@@ -1,0 +1,10 @@
+.photoComments{
+    padding:0em 2em;
+    padding-bottom:0;
+    overflow-y:auto;
+}
+
+
+.photoComments li{
+    line-height: 1.7em;
+}

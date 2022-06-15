@@ -1,0 +1,45 @@
+.header{
+    border-bottom:1px solid rgba(128, 128, 128, 0.219);
+    position:fixed;
+    width:100%;
+    background-color: white;
+    z-index:10;
+    height:4em;
+    top:0;
+    display:flex;
+}
+
+.container{
+    display:flex;
+    justify-content: space-between;
+}
+
+.header ul {
+    display:flex;
+    justify-content: end;
+
+}
+.logo{
+    margin:auto 0;
+}
+
+.login li{
+    margin:auto;
+    font-weight: 550;
+}
+.login li a{
+    display:inline-block;
+}
+.login li a:after{
+    content:"";
+    display:inline-block;
+    width:14px;
+    height:17px;
+    background-image: url("./../Assets/usuario.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+    margin:0 .5em;
+    
+
+}

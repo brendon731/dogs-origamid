@@ -1,0 +1,23 @@
+.button{
+    padding:.5em 1.5em;
+    border:none;
+    border-radius: 5px;
+    background-color:#fb1;
+    color:#764701;
+    display:block;
+    cursor:pointer;
+
+    box-sizing:border-box;
+    font-size: 18px;
+    margin:.5em 0;
+}
+.button:disabled, .button:disabled:hover{
+    background-color: rgba(255, 188, 17, 0.479);
+    color:#76470181;
+    cursor: auto;
+    cursor:wait;
+}
+.button:hover, .button:focus{
+    background-color:rgb(223, 164, 16);
+
+}

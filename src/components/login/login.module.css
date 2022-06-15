@@ -1,0 +1,36 @@
+.loginContainer{
+    border:1px solid black;
+    display:flex;
+    min-height:100vh;
+    
+}
+
+.homePicture{
+    box-sizing: border-box;
+    width:50%;
+    min-height:100vh;
+    background-image: url("../../Assets/login.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:center;
+}
+.content{
+    box-sizing:border-box;
+    padding:1em 5%;
+    width:50%;
+    flex-grow: 1;
+    max-width: 600px;
+    margin-top:5em;
+
+}
+@media (max-width:768px) {
+    .homePicture{
+        background-image: none;
+        width:0;
+    }
+    .content{
+        width:fit-content;
+        margin:auto;
+    }
+    
+}

@@ -1,0 +1,27 @@
+.label{
+    display:block;
+    margin:1.2em 0;
+    line-height:.5em;
+    width:100%;
+
+}
+
+input{
+    box-sizing:border-box;
+    font-size: 18px;
+    margin:.5em 0;
+}
+.label input{
+    padding:.5em;
+    background-color: rgba(128, 128, 128, 0.11);
+    outline-color: #fb1;
+    width:100%;
+    border:none;
+    border-radius: 5px;
+    display:block;
+
+}
+input:focus{
+    background-color:transparent !important;
+
+}

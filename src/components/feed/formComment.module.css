@@ -1,0 +1,51 @@
+.postComent{
+    display:flex ;
+    padding:1em;
+    box-sizing: border-box;
+    width:100% !important;
+    max-width:100%;
+    
+}
+.postComent textarea{
+    resize: none;
+    flex-grow:1;
+    padding:.5em;
+    border:none;
+    background-color: rgba(128, 128, 128, 0.205);
+
+    outline-color: #fb1;
+    font-size: 16px;
+
+}
+.postComent textarea:focus{
+    background-color:white;
+}
+.postComent button{
+    height:100%;
+    margin:0;
+    padding-left:1em;
+    border:none;
+    cursor:pointer;
+   background-color:inherit;
+}
+
+.postComent button:hover path{
+    fill:#fb1;
+
+}
+@keyframes coment{
+    
+    0%{
+        fill:none;
+    }
+    100%{
+        fill:#fb1;
+    }
+}
+.postComent .animated svg > *{
+    fill:#fb1;
+}
+.postComent .animated g path{
+    animation:.5s coment infinite ;
+
+}
