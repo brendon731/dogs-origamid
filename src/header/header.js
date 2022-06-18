@@ -26,7 +26,7 @@ export default function Header(){
                         :
                         context.isLogged?
                         <>
-                            <li><Link to="conta">{context.username}</Link></li>
+                            <li><Link to="conta">{context.data.username}</Link></li>
                             {/* <li> <button onClick={userLogout}>sair</button></li> */}
                         </>:
                             <li><Link to="login">Login / Criar</Link></li>

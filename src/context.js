@@ -2,32 +2,30 @@ import React, {createContext, useEffect, useState} from "react"
 import { BASE_URL } from "./baseurl"
 import {GET_USER, TOKEN_POST} from "./api"
 import {useNavigate} from "react-router-dom"
+import useFecth from "./components/helper/useFetch"
 export const AuthContext = createContext()
 
         
 export function ContextProvider({children}){
     const [isLogged, setIsLogged] = useState(null)
-    const [username, setUsername] = useState("")
+    const [data, setData] = useState("")
     const [isLoadingUser, setIsLoadingUser] = useState(true)
 
     const [token, setToken] = useState()
     const navigate = useNavigate()
 
     async function getUSer(token){
+        console.log("aqui--------")
         const {url, options} = GET_USER(token)
-        console.log(token, "-----token-- getuser----")
         try{
             let res = await fetch(url, options)
             if(!res.ok) throw new Error("erro ao pegar o usuario")
             let data = await res.json()
 
-            setUsername(data.username)
-            console.log(data)
+            setData(data)
             setIsLogged(true)
-            //navigate("/conta")
 
         }catch(err){
-            console.log(err)
             setIsLogged(false)
         }
         finally{
@@ -37,14 +35,15 @@ export function ContextProvider({children}){
 
     }
     async function userLogin({username, password}){
-        console.log(username, password)
         const {url, options} = TOKEN_POST({username:username, password:password})
+        
+        setIsLoadingUser(true)
+        
         try{
             let res = await fetch(url, options)
             if(!res.ok) throw new Error("usuario ou senha invalidos")
             let resjson = await res.json()
             let token = resjson.token
-        //console.log(resjson, "-----token-- userlogin----")
 
             localStorage.setItem("token", token)
 
@@ -53,12 +52,13 @@ export function ContextProvider({children}){
         }catch(err){
             setIsLoadingUser(false)
             setIsLogged(false)
-
+            return err
         }
         
     }
     
-    function userLogout(){
+    function userLogout(evt){
+        evt.preventDefault()
        
         if(window.confirm("deseja sair?")){
             setIsLogged(false)
@@ -66,6 +66,7 @@ export function ContextProvider({children}){
             navigate("login")
         }
     }
+    
     useEffect(()=>{
         const tokenFromLocal = localStorage.getItem("token")
         if(tokenFromLocal){
@@ -81,7 +82,7 @@ export function ContextProvider({children}){
 
     return(
         <AuthContext.Provider 
-         value={{userLogin, token, setToken, isLogged, setIsLogged, username, setUsername, userLogout, isLoadingUser, setIsLoadingUser}}>
+         value={{userLogin, token, setToken, isLogged, setIsLogged, data, userLogout, isLoadingUser, setIsLoadingUser}}>
             {children}
         </AuthContext.Provider>
         )

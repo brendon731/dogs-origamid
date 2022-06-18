@@ -1,0 +1,15 @@
+.loadContainer{
+    background-color: white;
+    
+}
+.loadContainer svg{
+    margin:auto;
+    border:1px solid black;
+    display: block;
+    background-color: aqua;
+    height:75px;
+    width:75px;
+    padding:.5em;
+    box-sizing: border-box;
+    border-radius:50%;
+}

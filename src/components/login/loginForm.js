@@ -13,40 +13,18 @@ export default function Login(){
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
 
-    const [canSubmit, setCanSubmit] = useState(true)
 
     const context = useContext(AuthContext)
 
-    useEffect(()=>{
-        setError(false)
-    },[username, password])
 
+   
     async function Login(evt){
         evt.preventDefault()
-        context.setIsLoadingUser(true)
+        const res = await context.userLogin({username:username, password:password})
+        if(res) setError(res.message)
 
-        const {url, options} = TOKEN_POST({
-            username:username, password:password
-        })
-        try{
-            let res = await fetch(url, options)
-
-            if(!res.ok) throw new Error("usuario ou senha invalidos")
-
-            let json = await res.json()
-
-            localStorage.setItem("token", json.token)
-            context.setUsername(json.user_display_name)
-            context.setIsLogged(true)
-
-        }catch(error){
-
-            setError(error.message)
-        }
-        finally{
-            context.setIsLoadingUser(false)
-
-        }
+        // if(res.message) console.log("errorororo", res.message)
+        // if(res.error) setError(res.error.message)
         
     }
     return(
@@ -56,7 +34,7 @@ export default function Login(){
             
                 <Input title={"Usuario:"} value={username} setValue={setUsername}/>
                 <Input title={"Senha:"} value={password} setValue={setPassword}/>
-                {error && <span className="errorMessage">Usuario ou senha inválido</span>}
+                {error && <span className="errorMessage">{error}</span>}
 
                 <Button disabled={context.isLoadingUser}>{context.isLoadingUser?"carregando...":"login"}</Button>  
                 <Link to="perdeu" className={style.passwordLost}>Perdeu a senha?</Link>

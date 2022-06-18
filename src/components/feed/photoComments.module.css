@@ -1,7 +1,11 @@
 .photoComments{
-    padding:0em 2em;
     padding-bottom:0;
-    overflow-y:auto;
+    padding:0em 2em;
+    /* border:2px solid green; */
+}
+.photoCommentsSinglePage{
+    margin-bottom:.5em;
+    padding:0;
 }
 
 

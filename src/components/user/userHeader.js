@@ -33,9 +33,9 @@ export default function UserHeader(){
                 break
         }
     },[location])
-
+    
     return(
-        <section className={"container " + style.userHeader}>
+        <div className={"container " + style.userHeader}>
             <h2 className="title">{title}</h2>
             {isMobile && <button 
             arial-label="menu"
@@ -63,6 +63,6 @@ export default function UserHeader(){
                 </a>
 
             </nav>
-        </section>
+        </div>
     )
 }

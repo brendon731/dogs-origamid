@@ -5,10 +5,12 @@ import UserHeader from "./userHeader"
 import Feed from "../feed/feed"
 
 import UserPhotoPost from "./userPhotoPost";
+import ErrorPage from "../helper/errorPage";
 
 export default function User(){
    const location = useLocation()
-
+   const {data} = useContext(AuthContext)
+   console.log(data, "---data----")
    useEffect(()=>{
       const {pathname} = location
         switch(pathname){
@@ -31,10 +33,10 @@ export default function User(){
       <UserHeader/>
       <section className="container">
          <Routes>
-            <Route path="/" element={<Feed/>}/>
+            <Route path="/" element={<Feed id={data.id}/>}/>
             <Route path="postar" element={<UserPhotoPost/>}/>
             <Route path="estatisticas" element={<h1>estatisticas</h1>}/>
-            <Route path="*" element={<h1>feed</h1>}/>
+            <Route path="*" element={<ErrorPage/>}/>
 
          </Routes>
       </section>

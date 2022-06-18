@@ -7,6 +7,8 @@ import LoginForm from "./loginForm"
 import style from "./login.module.css"
 
 import {AuthContext} from "../../context"
+import ErrorPage from "../helper/errorPage"
+import PasswordReset from "./passwordReset"
 function Login() {
 const context = useContext(AuthContext)
 
@@ -18,9 +20,12 @@ const context = useContext(AuthContext)
             <div className={style.content}>
 
             <Routes>
-                <Route path="" element={<LoginForm/>}/>
+                <Route path="/" element={<LoginForm/>}/>
                 <Route path="perdeu" element={<PasswordForgotten/>}/>
+                <Route path="resetar" element={<PasswordReset/>}/>
                 <Route path="criar" element={<CreateAccount/>}/>
+              <Route path="*" element={<ErrorPage/>}/>
+
             </Routes>
 
             </div>

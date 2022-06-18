@@ -19,7 +19,7 @@ export default function Create(){
     async function createUser(evt){
         evt.preventDefault()
         setIsLoading(true)
-        
+            console.log(username, email, password)
         try{
             const {url, options} = CREATE_ACCOUNT({username:username, password:password, email:email})
 

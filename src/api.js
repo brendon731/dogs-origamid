@@ -1,19 +1,5 @@
 export const BASE_URL = "https://dogsapi.origamid.dev/json/"
 
-
-// export function TOKEN_POST(token){
-    
-//     return{
-//         url:BASE_URL + "jwt-auth/v1/token/validate",
-//         options:{
-//             method:"POST",
-//             headers:{
-//                 Authorization:"Bearer " + token
-//             }
-//         }
-//     }
-// }
-
 export function GET_USER(token){
     return{
         url:BASE_URL + "api/user",
@@ -25,7 +11,6 @@ export function GET_USER(token){
         }
     }
 }
-
 export function TOKEN_POST(body){
     return {
         url:BASE_URL + "jwt-auth/v1/token",
@@ -38,9 +23,8 @@ export function TOKEN_POST(body){
         }
     }
 }
-
 export function CREATE_ACCOUNT(body){
-
+console.log(body)
     return{
         url:BASE_URL + "api/user",
         options:{
@@ -99,4 +83,42 @@ export function COMMENT_POST(id, body){
         body:JSON.stringify(body)
         }
     }
+}
+export function PHOTO_DELETE(id){
+    return{
+        url:BASE_URL + `api/photo/${id}`,
+        options:{
+            method:"DELETE",
+            headers:{
+                Authorization : "Bearer " + window.localStorage.getItem("token")
+            }
+        }
+    }
+}
+
+export function PASSWORD_LOST(body){
+    return{
+        url:BASE_URL + "api/password/lost",
+        options:{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(body)
+        }
+    }
+
+}
+export function PASSWORD_RESET(body){
+    return{
+        url:BASE_URL + "api/password/reset",
+        options:{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(body)
+        }
+    }
+
 }

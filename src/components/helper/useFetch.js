@@ -2,7 +2,7 @@ import {useState} from "react"
 
 
 export default function useFecth(){
-    const [data, setDate] = useState(null)
+    const [data, setData] = useState(null)
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(null)
 
@@ -15,7 +15,7 @@ export default function useFecth(){
             json = await res.json()
 
             if(!res.ok) throw new Error(json.message)
-            setDate(json)
+            setData(json)
 
         }catch(err){
             sucess = false

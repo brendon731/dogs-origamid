@@ -44,6 +44,12 @@ li{
     width:100%;
     max-width: 50em;
     padding:1em;
+    display:flex;
+
+}
+section.container{
+    min-height:100vh;
+    flex-direction:column;
 
 }
 .title{
@@ -70,8 +76,9 @@ li{
     color: red;
     font-size: 14px;
     line-height: 0;
-    
-
+}
+.sucessMessage{
+    color:rgb(0, 173, 0);
 }
 
 

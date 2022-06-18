@@ -6,9 +6,9 @@ export default function Homepage(){
     const context = useContext(AuthContext)
     
 
-    return <div className="container">
+    return <section className="container">
         <Feed/>
-    </div>
+    </section>
     
     
         
