@@ -78,7 +78,7 @@ main{
 .errorMessage{
     color: red;
     font-size: 14px;
-    line-height: 0;
+    line-height: 1.2em;
 }
 .sucessMessage{
     color:rgb(0, 173, 0);

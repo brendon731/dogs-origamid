@@ -10,6 +10,7 @@ export function ContextProvider({children}){
     const [isLogged, setIsLogged] = useState(null)
     const [data, setData] = useState("")
     const [isLoadingUser, setIsLoadingUser] = useState(true)
+    
 
     const [token, setToken] = useState()
     const navigate = useNavigate()

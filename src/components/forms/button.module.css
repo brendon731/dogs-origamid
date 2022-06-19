@@ -17,7 +17,9 @@
     cursor: auto;
     cursor:wait;
 }
-.button:hover, .button:focus{
-    background-color:rgb(223, 164, 16);
 
+.button:hover,
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #fea, 0 0 0 4px #fb1;
 }

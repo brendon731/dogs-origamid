@@ -6,12 +6,14 @@ import useFecth from "../helper/useFetch";
 import FormField from "./formField";
 import {useNavigate} from "react-router-dom"
 import Head from "../helper/head";
+import useForm from "../helper/useForm";
 
 export default function PasswordReset(){
     const [login, setLogin] = useState()
     const [key, setKey] = useState()
-    const [password, setPassword] = useState("")
+    // const [password, setPassword] = useState("")
     const {data, error, isLoading, request} = useFecth()
+    const password = useForm("password")
     const navigate = useNavigate()
     useEffect(()=>{
         let params = new URLSearchParams(window.location.search)
@@ -26,7 +28,7 @@ export default function PasswordReset(){
     async function handleSubmit(evt){
         evt.preventDefault()
         const {url, options} = PASSWORD_RESET({
-            login:login, key:key, password:password
+            login:login, key:key, password:password.value
         })
         let {sucess} = await request(url, options)
         if(sucess) navigate("/login")
@@ -36,7 +38,9 @@ export default function PasswordReset(){
     <Head title="Resetar a senha"/>
         <form onSubmit={handleSubmit}>
             <FormField title="Resetar a senha">
-                <Input title="Nova senha" value={password} setValue={setPassword}/>
+                {/* <Input title="Nova senha" value={password} setValue={setPassword}/> */}
+                <Input title={"nova Senha:"} type="password" {...password}/>
+
                 {isLoading?
                     <Button disabled={true}>carregando...</Button>
                 :

@@ -1,31 +1,30 @@
-import {useState, useContext, useEffect} from "react"
+import { useState, useContext } from "react"
 import {AuthContext} from "../../context"
 import style from "./loginForm.module.css"
-import {Link, Navigate} from "react-router-dom"
+import {Link} from "react-router-dom"
 import Input from "../forms/input"
 import Button from "../forms/button"
 
-import {TOKEN_POST} from "../../api"
 import FormField from "./formField"
 import Head from "../helper/head"
+import useForm from "../helper/useForm"
 
 export default function Login(){
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [error, setError] = useState(false)
 
+    const [error, setError] = useState(false)
+    const username = useForm()
+    const password = useForm()
 
     const context = useContext(AuthContext)
 
-
-   
     async function Login(evt){
         evt.preventDefault()
-        const res = await context.userLogin({username:username, password:password})
+        
+        setError(false)
+        
+        const res = await context.userLogin({username:username.value, password:password.value})
         if(res) setError(res.message)
-
-        // if(res.message) console.log("errorororo", res.message)
-        // if(res.error) setError(res.error.message)
+        
         
     }
     return(
@@ -35,8 +34,8 @@ export default function Login(){
         <form onSubmit={Login}>
             <FormField title="Login">
             
-                <Input title={"Usuario:"} value={username} setValue={setUsername}/>
-                <Input title={"Senha:"} value={password} setValue={setPassword}/>
+                <Input title={"Usuario:"} {...username}/>
+                <Input title={"Senha:"} type="password" {...password}/>
                 {error && <span className="errorMessage">{error}</span>}
 
                 <Button disabled={context.isLoadingUser}>{context.isLoadingUser?"carregando...":"login"}</Button>  

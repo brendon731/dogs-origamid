@@ -13,7 +13,7 @@ input{
 }
 .label input{
     padding:.7em;
-    background-color: rgba(128, 128, 128, 0.11);
+    background-color: rgb(233, 245, 255);
     outline-color: #fb1;
     width:100%;
     border:none;
