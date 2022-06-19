@@ -13,7 +13,19 @@ export default function PhotoDelete({ id }){
             const {url, options} = PHOTO_DELETE(id)
             const sucess = await request(url, options)
 
-            if(sucess) window.location.reload()
+            if(sucess){
+                // console.log(window.location)
+                let path = window.location.pathname
+                if(path === "/conta"){
+
+                    window.location.reload()
+                }else{
+                    navigate("/conta")
+                }
+
+                //navigate("/conta")
+            } 
+                
         }
     }
 

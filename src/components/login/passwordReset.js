@@ -5,6 +5,7 @@ import Input from "../forms/input";
 import useFecth from "../helper/useFetch";
 import FormField from "./formField";
 import {useNavigate} from "react-router-dom"
+import Head from "../helper/head";
 
 export default function PasswordReset(){
     const [login, setLogin] = useState()
@@ -27,11 +28,12 @@ export default function PasswordReset(){
         const {url, options} = PASSWORD_RESET({
             login:login, key:key, password:password
         })
-        let {sucess, json} = await request(url, options)
+        let {sucess} = await request(url, options)
         if(sucess) navigate("/login")
 
     }
-    return(
+    return(<>
+    <Head title="Resetar a senha"/>
         <form onSubmit={handleSubmit}>
             <FormField title="Resetar a senha">
                 <Input title="Nova senha" value={password} setValue={setPassword}/>
@@ -43,5 +45,6 @@ export default function PasswordReset(){
                 {error && <span className="errorMessage">{error}</span>}
             </FormField>
         </form>
+    </>
     )
 }

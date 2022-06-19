@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { PASSWORD_LOST } from "../../api"
 import Button from "../forms/button"
 import Input from "../forms/input"
+import Head from "../helper/head"
 import useFecth from "../helper/useFetch"
 import FormField from "./formField"
 
@@ -23,6 +24,7 @@ export default function Forgot(){
     }
 
     return(<>
+    <Head title="Esqueceu a senha"/>
         {data? <p className="sucessMessage">{data}</p>:
         <form onSubmit={handleSubmit}>
 

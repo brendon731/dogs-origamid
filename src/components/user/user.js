@@ -6,26 +6,12 @@ import Feed from "../feed/feed"
 
 import UserPhotoPost from "./userPhotoPost";
 import ErrorPage from "../helper/errorPage";
+import UserStats from "./userStats";
 
 export default function User(){
    const location = useLocation()
    const {data} = useContext(AuthContext)
-   console.log(data, "---data----")
-   useEffect(()=>{
-      const {pathname} = location
-        switch(pathname){
-            case "/conta/estatisticas":
-                document.title = "Estatísticas | Dogs"
-                break
-            case "/conta/postar":
-                document.title = "Poste sua foto | Dogs"
-                break
-            default:
-                document.title = "Minha Conta | Dogs"
-                break
-        }
-      
-   },[location])
+
 
    return(
       <>
@@ -35,7 +21,7 @@ export default function User(){
          <Routes>
             <Route path="/" element={<Feed id={data.id}/>}/>
             <Route path="postar" element={<UserPhotoPost/>}/>
-            <Route path="estatisticas" element={<h1>estatisticas</h1>}/>
+            <Route path="estatisticas" element={<UserStats/>}/>
             <Route path="*" element={<ErrorPage/>}/>
 
          </Routes>

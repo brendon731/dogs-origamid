@@ -6,6 +6,7 @@ import style from "./userPhotoPost.module.css"
 import {PHOTO_POST} from "../../api"
 import {useNavigate} from "react-router-dom"
 import useFecth from "../helper/useFetch"
+import Head from "../helper/head"
 export default function UserPhotoPost(){
     const navigate = useNavigate()
     // const [isLoading, setIsLoading] = useState(false)
@@ -34,7 +35,7 @@ export default function UserPhotoPost(){
         const token = localStorage.getItem("token")
         const {url, options} = PHOTO_POST(formData, token)
         let sucess = await request(url, options)
-        if(sucess) return navigate("/")
+        if(sucess) return navigate("/conta")
     }
 
    
@@ -53,7 +54,7 @@ export default function UserPhotoPost(){
 
     return(<>
     <div className={style.photoPostContent} >
-        
+        <Head title="Poste uma foto"/>
         <form onSubmit={handleImg}>
             <Input title="Nome" value={name} setValue={setName}/>
             <Input title="Peso" value={idade} setValue={setIdade} type="number"/>
@@ -63,12 +64,10 @@ export default function UserPhotoPost(){
             {isLoading?<Button disabled={true}>Carregando...</Button>:<Button>Enviar</Button>} 
         </form>
         {img.preview?
-        <div 
-        style={{
-            overflow:"hidden",
-            background:`url(${img.preview}) no-repeat center`,
-            backgroundSize:"cover",
-            borderRadius:"1.5em"}}>
+            <div 
+                style={{backgroundImage:`url(${img.preview})`}}
+                className={style.photoPreview}
+                >
 
         </div>:null}
     </div>

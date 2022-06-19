@@ -1,6 +1,24 @@
 .photoPostContent{
     display:grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:1em;
+    gap:1.5em;
     padding-bottom:5em;
+}
+.photoPreview{
+    overflow:hidden;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size:cover;
+    border-radius:1.5em;
+}
+.photoPreview:after{
+    content:"";
+    display:block;
+    height:0;
+    padding-bottom:100%;
+}
+@media (max-width:40em){
+    .photoPostContent{
+        grid-template-columns: 1fr;
+    }
 }

@@ -1,7 +1,10 @@
 footer{
     background-color: #fb1;
     text-align:center;
-    padding:3em;
     color:rgb(114, 114, 0);
-    font-weight: 550;
+    padding:3em;
+
+}
+footer p{
+    padding-top:1em;
 }

@@ -23,7 +23,8 @@ function App() {
       <BrowserRouter>
         <ContextProvider>
           <Header/>
-
+            <main>
+              
             <Routes>
               <Route path="/" element={<Home/>}/>
               <Route path="login/*" element={<Login/>}/>
@@ -34,6 +35,7 @@ function App() {
               <Route path="*" element={<ErrorPage/>}/>
             </Routes>
 
+            </main>
             <Footer/>
         </ContextProvider>
       </BrowserRouter>

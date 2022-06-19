@@ -2,7 +2,7 @@
 .passwordLost{
     text-decoration: underline;
     text-decoration-thickness:.15em;
-    font-weight: 550;
     display: block;
     margin-top:2em;
+    color:#444;
 }

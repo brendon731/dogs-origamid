@@ -24,7 +24,6 @@ export function TOKEN_POST(body){
     }
 }
 export function CREATE_ACCOUNT(body){
-console.log(body)
     return{
         url:BASE_URL + "api/user",
         options:{
@@ -118,6 +117,18 @@ export function PASSWORD_RESET(body){
                 "Content-Type":"application/json"
             },
             body:JSON.stringify(body)
+        }
+    }
+
+}
+export function STATS_GET(){
+    return{
+        url:BASE_URL + "api/stats",
+        options:{
+            method:"GET",
+            headers:{
+                Authorization : "Bearer " + window.localStorage.getItem("token")
+            }
         }
     }
 

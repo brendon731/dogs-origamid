@@ -7,6 +7,7 @@ import Button from "../forms/button"
 
 import {TOKEN_POST} from "../../api"
 import FormField from "./formField"
+import Head from "../helper/head"
 
 export default function Login(){
     const [username, setUsername] = useState("")
@@ -29,6 +30,8 @@ export default function Login(){
     }
     return(
         <>
+        <Head title="login"/>
+
         <form onSubmit={Login}>
             <FormField title="Login">
             
@@ -43,7 +46,7 @@ export default function Login(){
         <form>
             
             <FormField title="Cadastre-se">
-                <p>Ainda mão possui uma conta? Cadastre-se no site.</p>
+                <p style={{padding:"1em 0"}}>Ainda mão possui uma conta? Cadastre-se no site.</p>
 
                 <Link to="criar">
                     <Button>Cadastro</Button>

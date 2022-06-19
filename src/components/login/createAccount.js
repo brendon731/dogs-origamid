@@ -6,6 +6,7 @@ import Input from "../forms/input"
 import Button from "../forms/button"
 
 import {CREATE_ACCOUNT} from "../../api"
+import Head from "../helper/head"
 
 export default function Create(){
     const [username, setUsername] = useState("")
@@ -42,7 +43,8 @@ export default function Create(){
         }
 
     }
-    return(
+    return(<>
+    <Head title="Crie sua conta"/>
         <form onSubmit={createUser}>
             <FormField title="Cadastre-se">
                 <Input title="Usuario:" value={username} setValue={setUsername}/>
@@ -53,5 +55,6 @@ export default function Create(){
             </FormField>
 
         </form>
+    </>
     )
 }

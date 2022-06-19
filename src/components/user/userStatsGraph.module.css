@@ -1,0 +1,25 @@
+.graph{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:1.5em;
+}
+.total{
+    grid-column: 1/-1;
+    padding:2em;
+
+}
+.total p{
+    font-size: 32px;
+    
+}
+.graphItem, .total{
+    box-shadow: 0px 10px 20px rgb(223, 223, 223);
+    border-radius: 5px;
+
+}
+@media (max-width:40em){
+    .graph{
+        grid-template-columns: 1fr;
+    }
+}
+

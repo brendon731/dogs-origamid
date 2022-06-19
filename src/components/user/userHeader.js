@@ -9,13 +9,14 @@ import {ReactComponent as Sair} from "../../Assets/sair.svg"
 
 import style from "./userHeader.module.css"
 import useMedia from "../../hooks/useMedia";
+import Head from "../helper/head";
 
 
 export default function UserHeader(){
     const context = useContext(AuthContext)
     const [title, setTitle] = useState("")
     const [isButtonActive, setIsButtonActive] = useState(false)
-    const isMobile = useMedia("(max-Width:768px)")
+    const isMobile = useMedia("(max-Width:40em)")
     const location = useLocation()
 
     useEffect(()=>{
@@ -36,7 +37,10 @@ export default function UserHeader(){
     
     return(
         <div className={"container " + style.userHeader}>
+            <Head title="Minha conta"/>
+            
             <h2 className="title">{title}</h2>
+
             {isMobile && <button 
             arial-label="menu"
             className={`${style.mobileButton} ${isButtonActive && style.mobileButtonActive}`} 
@@ -44,16 +48,16 @@ export default function UserHeader(){
             ></button>}
 
             <nav className={isMobile?style.navMobile:style.nav}>
-                <NavLink className={({isActive})=>isActive?style.active:null} to="/conta" title="Minhas fotos" end>
+                <NavLink className={({isActive})=>isActive?style.active:null} to="/conta"  end>
                     <Feed/>
                     {isMobile && "minhas fotos"}
                 </NavLink>
-                <NavLink className={({isActive})=>isActive?style.active:null} to="postar" title="Postar fotos">
+                <NavLink className={({isActive})=>isActive?style.active:null} to="postar">
                     <Adicionar/>
                     {isMobile && "Postar fotos"}
 
                 </NavLink>
-                <NavLink className={({isActive})=>isActive?style.active:null} to="estatisticas" title="estatisticas">
+                <NavLink className={({isActive})=>isActive?style.active:null} to="estatisticas">
                     <Estatisticas/>{isMobile && "Estatisticas"}
                 </NavLink>
                 <a href="#" onClick={context.userLogout} title="Sair">

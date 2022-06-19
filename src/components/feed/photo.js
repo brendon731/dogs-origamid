@@ -4,6 +4,7 @@ import useFecth from "../helper/useFetch"
 import ModalContent from "./modalContent"
 import { PHOTO_GET } from "../../api"
 import { useParams } from "react-router-dom"
+import Head from "../helper/head"
 export default function Photo(){
     const {id} = useParams()
     const {data:photoInfo, error, isLoading, request} = useFecth()
@@ -13,6 +14,7 @@ export default function Photo(){
     },[id])
 
     return(<>
+    {photoInfo && <Head title={photoInfo.photo.title}/>}
         <section className="container">
         {isLoading?
             <Loading/>
