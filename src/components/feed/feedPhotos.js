@@ -31,7 +31,7 @@ export default function FeedPhotos({ setInfinite, page, id, openModal }){
         <>
         {photos && 
         
-            <ul className={`entering-animation ${style.PhotosContainer}`}>
+            <ul className={`entering-animation ${style.photosContainer}`}>
                 {photos.map(photo=><FeedPhotosItem openModal={()=>{openModal(photo.id)}} photo={photo} key={photo.id}/>)}
             </ul>}
             

@@ -11,3 +11,10 @@
 .photoComments li{
     line-height: 1.7em;
 }
+
+@media (max-width:321px){
+    .photoComments{
+        padding:.5em;
+        width:calc(100% - 2.5em);
+    }
+}

@@ -80,6 +80,7 @@
     top:50px;    
     background-color: white;
     border:1px solid rgba(128, 128, 128, 0.151);
+    z-index:1000;
 }
 
 .mobileButtonActive ~ .navMobile a{

@@ -25,3 +25,9 @@ input:focus{
     background-color:transparent !important;
 
 }
+@media(max-width:321px){
+    input{
+        width:calc(320px - 2em);
+
+    }
+}
