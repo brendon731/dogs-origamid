@@ -36,8 +36,6 @@ export function CREATE_ACCOUNT(body){
     }
 }
 export function PHOTO_POST(formData, token){
-    let {nome, peso, idade, img} = formData
-    console.log(nome, peso, idade, "------")
     return{
         url:BASE_URL + "api/photo",
         options:{

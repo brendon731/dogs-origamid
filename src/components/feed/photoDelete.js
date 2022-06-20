@@ -13,7 +13,6 @@ export default function PhotoDelete({ id }){
             const sucess = await request(url, options)
 
             if(sucess){
-                // console.log(window.location)
                 let path = window.location.pathname
                 if(path === "/conta"){
 
@@ -22,7 +21,6 @@ export default function PhotoDelete({ id }){
                     navigate("/conta")
                 }
 
-                //navigate("/conta")
             } 
                 
         }

@@ -20,6 +20,7 @@ export default function UserHeader(){
     const location = useLocation()
 
     useEffect(()=>{
+
         setIsButtonActive(false)
         const {pathname} = location
         switch(pathname){
@@ -47,7 +48,7 @@ export default function UserHeader(){
             onClick={()=>setIsButtonActive(!isButtonActive)}
             ></button>}
 
-            <nav className={isMobile?style.navMobile:style.nav}>
+            <nav className={isMobile? style.navMobile:style.nav}>
                 <NavLink className={({isActive})=>isActive?style.active:null} to="/conta"  end>
                     <Feed/>
                     {isMobile && "minhas fotos"}

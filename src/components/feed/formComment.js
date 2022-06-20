@@ -5,11 +5,9 @@ import {COMMENT_POST} from "../../api"
 import useFetch from "../helper/useFetch" 
 
 export default function CommentForm({id, setComments, single}){
-    console.log(id)
     const {error, isLoading, request} = useFetch()
 
     const [comment, setComment] = useState("")
-
 
     async function postComment(evt){
         evt.preventDefault()
@@ -17,7 +15,6 @@ export default function CommentForm({id, setComments, single}){
         let {sucess, json} = await request(url, options)
         
         if(sucess){
-            console.log(json, error,  "<----error----")
             setComment("")
             setComments((comments)=>[...comments, json])
         }

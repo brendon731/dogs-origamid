@@ -12,7 +12,6 @@ export default function FeedPhotos({ setInfinite, page, id, openModal }){
         const total = 6
         const {url, options} = PHOTOS_GET({page:page, total:total, user:id})
         let {sucess, json} = await request(url, options)
-        console.log(json)
         
         if(sucess && json.length < total){
             setInfinite(false)
