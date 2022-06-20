@@ -23,7 +23,7 @@ useEffect(()=>{
     }
 },[data])
     return(
-        <div className={style.graph}>
+        <div className={`entering-animation ${style.graph}`}>
             <div className={style.total}>
 
                 <p>Acessos: {total}</p>

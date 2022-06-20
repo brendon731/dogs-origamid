@@ -1,8 +1,6 @@
 import React, {createContext, useEffect, useState} from "react"
-import { BASE_URL } from "./baseurl"
 import {GET_USER, TOKEN_POST} from "./api"
 import {useNavigate} from "react-router-dom"
-import useFecth from "./components/helper/useFetch"
 export const AuthContext = createContext()
 
         
@@ -16,7 +14,6 @@ export function ContextProvider({children}){
     const navigate = useNavigate()
 
     async function getUSer(token){
-        console.log("aqui--------")
         const {url, options} = GET_USER(token)
         try{
             let res = await fetch(url, options)

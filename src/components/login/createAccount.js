@@ -1,6 +1,5 @@
-import {useState, useContext} from "react"
+import { useContext} from "react"
 import { AuthContext } from "../../context"
-import style from "./loginForm.module.css"
 import FormField from "./formField"
 import Input from "../forms/input"
 import Button from "../forms/button"
@@ -15,7 +14,7 @@ export default function Create(){
     const email = useForm("email")
     const password = useForm("password")
 
-    const {data, error, isLoading, request} = useFecth()
+    const {error, isLoading, request} = useFecth()
     const context = useContext(AuthContext)
 
     async function createUser(evt){

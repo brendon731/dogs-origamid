@@ -3,7 +3,6 @@ import useFecth from "../helper/useFetch";
 import {STATS_GET} from "../../api"
 import { lazy, useEffect, Suspense } from "react";
 import Loading from "../helper/loading";
-// import UserStatsGraph from "./userStatsGraph";
 const UserStatsGraph = lazy(()=>import("./userStatsGraph"))
 export default function UseStats(){
 
@@ -11,8 +10,7 @@ export default function UseStats(){
 
     async function getData(){
         const {url, options} = STATS_GET()
-        let res = await request(url, options)
-        console.log("-----data-----", data, res)
+        await request(url, options)
     }
     useEffect(()=>{
         getData()

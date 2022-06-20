@@ -1,10 +1,9 @@
-import { Navigate } from "react-router-dom"
 import { PHOTO_DELETE } from "../../api"
 import useFecth from "../helper/useFetch"
 import style from "./photoDelete.module.css"
 import {useNavigate} from "react-router-dom"
 export default function PhotoDelete({ id }){
-    const {data, error, isLoading, request} = useFecth()
+    const {isLoading, request} = useFecth()
     const navigate = useNavigate()
     async function handleDelete(){
 

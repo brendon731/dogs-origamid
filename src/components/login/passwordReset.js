@@ -11,8 +11,7 @@ import useForm from "../helper/useForm";
 export default function PasswordReset(){
     const [login, setLogin] = useState()
     const [key, setKey] = useState()
-    // const [password, setPassword] = useState("")
-    const {data, error, isLoading, request} = useFecth()
+    const {error, isLoading, request} = useFecth()
     const password = useForm("password")
     const navigate = useNavigate()
     useEffect(()=>{
@@ -20,7 +19,6 @@ export default function PasswordReset(){
         let key = params.get("key")
         let login = params.get("login")
 
-        console.log(key, login)
         if(key) setKey(key)
         if(login) setLogin(login)
 

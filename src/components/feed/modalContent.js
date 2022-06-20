@@ -9,7 +9,6 @@ import style from "./modalContent.module.css"
 
 export default function ModalContent({photoInfo, single}){
     const context = useContext(AuthContext)
-    console.log(photoInfo, "<----id")
     return(
         <>
         <div className={single?style.singlePageContent:style.modalContent}>

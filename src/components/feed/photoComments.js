@@ -1,8 +1,5 @@
-import { useEffect } from "react";
 import {useContext, useState} from "react"
-import { COMMENT_POST } from "../../api";
 import { AuthContext } from "../../context";
-import useFecth from "../helper/useFetch";
 import FormComment from "./formComment";
 import style from "./photoComments.module.css"
 

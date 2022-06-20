@@ -7,13 +7,13 @@ body{
     margin:0;
 
     --type-first:Helvetica, Arial, Sans-serif;
-    --type-second:"Spectral", Georgia;
-
     font-family:var(--type-first);
 }
 form{
     display:inline-block;
     width:100%;
+    animation:.2s enteringAnimation linear;
+
 }
 h1, h2, h3, h4, h5, h6, p{
     margin:0;
@@ -47,8 +47,22 @@ li{
 
 }
 section.container{
-    
     flex-direction:column;
+}
+.entering-animation{
+    animation:.2s enteringAnimation linear;
+    
+}
+@keyframes enteringAnimation {
+    from{
+        transform:translateX(-20px);
+        opacity:0;
+    }
+    to{
+        transform:translateX(0);
+        opacity:1;
+    }
+    
 }
 main{
     min-height:100vh;

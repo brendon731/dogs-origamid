@@ -6,7 +6,7 @@ import useFetch from "../helper/useFetch"
 
 export default function CommentForm({id, setComments, single}){
     console.log(id)
-    const {data, error, isLoading, request} = useFetch()
+    const {error, isLoading, request} = useFetch()
 
     const [comment, setComment] = useState("")
 

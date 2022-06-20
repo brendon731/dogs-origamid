@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from "react"
+import {useState} from "react"
 
 export default function useFetch(){
     const [data ,setData ] = useState(null)
     const [error ,setError ] = useState(null)
     const [loading ,setLoading ] = useState(false)
-    // const [ ,set ] = useState()
     const getData = useCallback(async(url, options)=>{
 
         try{ 
