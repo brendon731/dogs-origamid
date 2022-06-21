@@ -10,7 +10,6 @@ export function ContextProvider({children}){
     const [isLoadingUser, setIsLoadingUser] = useState(true)
     
 
-    const [token, setToken] = useState()
     const navigate = useNavigate()
 
     async function getUSer(token){
@@ -80,7 +79,7 @@ export function ContextProvider({children}){
 
     return(
         <AuthContext.Provider 
-         value={{userLogin, token, setToken, isLogged, setIsLogged, data, userLogout, isLoadingUser, setIsLoadingUser}}>
+         value={{userLogin, isLogged,  data, userLogout, isLoadingUser}}>
             {children}
         </AuthContext.Provider>
         )
